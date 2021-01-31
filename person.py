@@ -7,17 +7,27 @@ class Person:
         self.hours = hours
         
     def getPerson(self):
+        f = open("EmpData.txt", "a")
         firstname, lastname = input("Hello! What is your full name?: ").split(" ")
         self.firstname = firstname
         self.lastname = lastname
+        f.write(firstname)
+        f.write(" ")
+        f.write(lastname)
+        f.write(", ")
 
     def getWages(self):
-        wage = input("Wages?: ")
+        f = open("EmpData.txt", "a")
+        wage = input("What are employee's wages?: ")
         self.wage = wage
+        f.write(wage)
+        f.write(", ")
 
     def getHours(self):
+        f = open("EmpData.txt", "a")
         hours = input("How many hours does employee work?: ")
         self.hours = hours
+        f.write(hours)
 
     def setfirstname(self, firstname):
         self.firstname = firstname
