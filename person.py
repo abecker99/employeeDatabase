@@ -29,6 +29,19 @@ class Person:
         hours = input("How many hours does employee work?: ")
         self.hours = hours
         f.write(hours)
+    
+    def removeEmp(self):
+        f = open("EmpData.txt", "r")
+        lines = f.readlines()
+        f.close()
+
+        nf = open("EmpData.txt", "w")
+        delEmp = input("Which employee would you like to remove?: ")
+        for line in lines:   
+            if not (line.startswith(delEmp)):
+                print(line)
+                nf.write(line)
+        nf.close()
 
     def setfirstname(self, firstname):
         self.firstname = firstname

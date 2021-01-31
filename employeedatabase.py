@@ -17,17 +17,8 @@ while (running):
         hour.append(you)
 
     if (check == "2"):
-        f = open("EmpData.txt", "r")
-        lines = f.readlines()
-        f.close()
-
-        nf = open("EmpData.txt", "w")
-        delEmp = input("Which employee would you like to remove?: ")
-        for line in lines:   
-            if not (line.startswith(delEmp)):
-                print(line)
-                nf.write(line)
-        nf.close()
+        you = person.Person()
+        you.removeEmp()
 
     if (check == "5"):
         quit()
