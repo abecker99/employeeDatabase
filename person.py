@@ -11,6 +11,7 @@ class Person:
         firstname, lastname = input("Hello! What is your full name?: ").split(" ")
         self.firstname = firstname
         self.lastname = lastname
+        f.write("\n")
         f.write(firstname)
         f.write(" ")
         f.write(lastname)
