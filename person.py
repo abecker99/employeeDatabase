@@ -8,7 +8,7 @@ class Person:
         
     def getPerson(self):
         f = open("EmpData.txt", "a")
-        firstname, lastname = input("Hello! What is your full name?: ").split(" ")
+        firstname, lastname = input("Hello! What is employee's full name?: ").split(" ")
         self.firstname = firstname
         self.lastname = lastname
         f.write("\n")

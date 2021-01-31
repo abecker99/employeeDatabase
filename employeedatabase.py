@@ -19,6 +19,14 @@ while (running):
     if (check == "2"):
         you = person.Person()
         you.removeEmp()
+    
+    if (check == "3"):
+        #calculate salary
+        #Specific person: Hourly from txt, Weekly hours from txt, Need Workweek from input? Wage * Hours * Weeks = Salary
+
+    if (check == "4"):
+        #give raise
+        #somehow replace specific wage in EmpData
 
     if (check == "5"):
         quit()
