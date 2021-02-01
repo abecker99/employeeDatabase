@@ -8,10 +8,10 @@ class Person:
         
     def getPerson(self):
         f = open("EmpData.txt", "a")
-        firstname, lastname = input("Hello! What is employee's full name?: ").split(" ")
+        firstname, lastname = input("What is employee's full name?: ").split(" ")
         self.firstname = firstname
         self.lastname = lastname
-        #f.write("\n")
+        f.write("\n")
         f.write(firstname)
         f.write(" ")
         f.write(lastname)
@@ -20,7 +20,7 @@ class Person:
 
     def getWages(self):
         f = open("EmpData.txt", "a")
-        wage = input("What are employee's wages?: ")
+        wage = input("What are the employee's wages?: ")
         self.wage = wage
         f.write(wage)
         f.write(", ")
@@ -28,10 +28,10 @@ class Person:
 
     def getHours(self):
         f = open("EmpData.txt", "a")
-        hours = input("How many hours does employee work?: ")
+        hours = input("How many hours does the employee work?: ")
         self.hours = hours
         f.write(hours)
-        f.write("\n")
+        #f.write("\n")
         f.close()
     
     def removeEmp(self):
@@ -47,7 +47,54 @@ class Person:
                 nf.write(line)
         nf.close()
 
-    #def getWeeks(self):
+    def calcSalary(self):
+        calc = input("Select an employee to calculate their salary: ")
+        f = open("EmpData.txt", "r")
+        lines = f.readlines()
+        for line in lines:   
+            if (line.startswith(calc)):
+                parts = line.split(", ")
+                wage = float(parts[1])
+                hours = int(parts[2])
+                weeks = int(input("How many weeks does the employee work?: "))
+                print(calc, "\b's salary is $", wage * hours * weeks)
+        f.close()
+
+    def giveRaise(self):
+        EmpRaise = input("Who would you like to give a raise to?: ")
+        f = open("EmpData.txt", "r")
+        lines = f.readlines()
+        f.close()
+
+        nf = open("EmpData.txt", "w")
+        for line in lines:   
+            if (line.startswith(EmpRaise)):
+                parts = line.split(", ")
+                wage = (parts[1])
+                newWage = (input("What is the employee's new pay?: "))
+                nf.write(line.replace(wage, newWage))
+                print(EmpRaise, "\b's wages are now $", newWage)
+            if not (line.startswith(EmpRaise)):
+                nf.write(line)
+        nf.close()
+    
+    def changeHours(self):
+        EmpHours = input("Who's hours are being changed?: ")
+        f = open("EmpData.txt", "r")
+        lines = f.readlines()
+        f.close()
+
+        nf = open("EmpData.txt", "w")
+        for line in lines:   
+            if (line.startswith(EmpHours)):
+                parts = line.split(", ")
+                hours = (parts[2])
+                newHours = (input("What are the employee's new hours?: "))
+                nf.write(line.replace(hours, newHours))
+                print(EmpHours, "now works ", newHours, "a week.")
+            if not (line.startswith(EmpHours)):
+                nf.write(line)
+        nf.close()
 
     def setfirstname(self, firstname):
         self.firstname = firstname

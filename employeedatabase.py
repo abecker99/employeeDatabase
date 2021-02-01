@@ -1,42 +1,39 @@
 import person
 
 running = True
-employee = []
-wage = []
-hours = []
-weeks = []
+
 while (running):
-    print("Options: 1: add employee, 2: remove employee, 3: calculate wages, 4: give raise, 5: Exit")
+    print("Options: 1: add employee, 2: remove employee, 3: calculate wages, 4: give raise, 5: change hours, 6: Exit")
     check = input("Please select an option. ")
     if (check == "1"):
+        #Add employee
         you = person.Person()
         you.getPerson()
         you.getWages()
         you.getHours()
 
     if (check == "2"):
+        #Remove employee
         you = person.Person()
         you.removeEmp()
     
     if (check == "3"):
         #calculate salary
-        #Specific person: Hourly from txt, Weekly hours from txt, Need Workweek from input? Wage * Hours * Weeks = Salary
-        calc = input("Pick employee: ")
-        f = open("EmpData.txt", "r")
-        lines = f.readlines()
-        for line in lines:   
-            if (line.startswith(calc)):
-                parts = line.split(", ")
-                wage = float(parts[1])
-                hours = int(parts[2])
-                weeks = int(input("How many weeks does employee work?: "))
-                print(calc, "\b's salary is $", wage * hours * weeks)
-        f.close()
+        #Specific person: Hourly from txt, Weekly hours from txt, Need number workweeks from input? Wage * Hours * Weeks = Salary
+        you = person.Person()
+        you.calcSalary()
 
-    #if (check == "4"):
+    if (check == "4"):
         #give raise
-        #somehow replace specific wage in EmpData
+        #replace specific wage in EmpData
+        you = person.Person()
+        you.giveRaise()
 
     if (check == "5"):
+        #Change hours
+        you = person.Person()
+        you.changeHours()
+
+    if (check == "6"):
         print("Goodbye!")
         quit()
