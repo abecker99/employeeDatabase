@@ -11,11 +11,12 @@ class Person:
         firstname, lastname = input("Hello! What is employee's full name?: ").split(" ")
         self.firstname = firstname
         self.lastname = lastname
-        f.write("\n")
+        #f.write("\n")
         f.write(firstname)
         f.write(" ")
         f.write(lastname)
         f.write(", ")
+        f.close()
 
     def getWages(self):
         f = open("EmpData.txt", "a")
@@ -23,12 +24,15 @@ class Person:
         self.wage = wage
         f.write(wage)
         f.write(", ")
+        f.close()
 
     def getHours(self):
         f = open("EmpData.txt", "a")
         hours = input("How many hours does employee work?: ")
         self.hours = hours
         f.write(hours)
+        f.write("\n")
+        f.close()
     
     def removeEmp(self):
         f = open("EmpData.txt", "r")
@@ -42,6 +46,8 @@ class Person:
                 print(line)
                 nf.write(line)
         nf.close()
+
+    #def getWeeks(self):
 
     def setfirstname(self, firstname):
         self.firstname = firstname
