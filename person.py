@@ -43,9 +43,9 @@ class Person:
         delEmp = input("Which employee would you like to remove?: ")
         for line in lines:   
             if not (line.startswith(delEmp)):
-                print(line)
                 nf.write(line)
         nf.close()
+        print(delEmp, "has been removed.")
 
     def calcSalary(self):
         calc = input("Select an employee to calculate their salary: ")
@@ -91,7 +91,7 @@ class Person:
                 hours = (parts[2])
                 newHours = (input("What are the employee's new hours?: "))
                 nf.write(line.replace(hours, newHours))
-                print(EmpHours, "now works ", newHours, "a week.")
+                print(EmpHours, "now works ", newHours, "hours a week.")
             if not (line.startswith(EmpHours)):
                 nf.write(line)
         nf.close()

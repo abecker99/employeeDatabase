@@ -3,7 +3,7 @@ import person
 running = True
 
 while (running):
-    print("Options: 1: add employee, 2: remove employee, 3: calculate wages, 4: give raise, 5: change hours, 6: Exit")
+    print("Options: 1: add employee, 2: remove employee, 3: calculate salary, 4: give raise, 5: change hours, 6: Exit")
     check = input("Please select an option. ")
     if (check == "1"):
         #Add employee
