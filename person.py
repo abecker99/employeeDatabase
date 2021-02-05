@@ -31,7 +31,6 @@ class Person:
         hours = input("How many hours does the employee work?: ")
         self.hours = hours
         f.write(hours)
-        #f.write("\n")
         f.close()
     
     def removeEmp(self):
@@ -45,7 +44,7 @@ class Person:
             if not (line.startswith(delEmp)):
                 nf.write(line)
         nf.close()
-        print(delEmp, "has been removed.")
+        print(delEmp, "has been removed from the database.")
 
     def calcSalary(self):
         calc = input("Select an employee to calculate their salary: ")

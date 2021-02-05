@@ -11,6 +11,7 @@ while (running):
         you.getPerson()
         you.getWages()
         you.getHours()
+        print("The employee has been added to the database.")
 
     if (check == "2"):
         #Remove employee
